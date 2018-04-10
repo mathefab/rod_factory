@@ -98,3 +98,4 @@ for num, line in enumerate(linescsv, 0):
     
 # Call rodbuilder to make the rod files with files we need
 rodbuilder(stringfile, "R060227.txt", "abhurite.rod", "template.rod")
+
