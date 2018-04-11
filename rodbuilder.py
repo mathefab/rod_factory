@@ -37,6 +37,8 @@ def rodbuilder(ciffile, ruffile, rodfile, template):
 # From a template.rod files
 # We read the raman instrumental details for 780 wave length for example
 
+    outputfile.write("#HERE IS DATA FROM a template rod file\n")
+
 #  first need to read the rruff file to get nb lines
 
     nblinesruf = 0
@@ -46,7 +48,7 @@ def rodbuilder(ciffile, ruffile, rodfile, template):
 
 # read and copy the spectrum data from the TAG "MEASURED CHEMISTRY"
 
-    outputfile.write("#HERE IS DATA FROM RRUFF")
+    outputfile.write("#HERE IS DATA FROM RRUFF\n")
     outputfile.write("loop_\n")
     outputfile.write("_raman_spectrum.raman_shift\n")
     outputfile.write("_raman_spectrum.intensity\n")
@@ -99,14 +101,14 @@ def readcsv(csvfile):
 
 print("1 - Create a single rod file")
 print("2 - Create multople rod files")
-      
-choix=input("What do you want to do ? (1/2)")
 
+choix=input("What do you want to do ? (1/2)")
+choix=int(choix)  
 if (choix==1):
     stringcif=input("Enter cif file name : ")
     stringcif=(str(stringcif))
     stringruf=input("Enter ruf file name : ")
-    stringcruf=(str(stringruf))
+    stringruf=(str(stringruf))
     rodbuilder(stringcif, stringruf, "abhurite.rod", "template.rod")
  
 
