@@ -84,18 +84,37 @@ def lookforcif(codid):
 # read csv files to link rruff file to cod file
 #TODO Read csv file get rruffid, cod code and amcsd code
 
-linescsv = [line for line in open("export.csv", "r")]
-for num, line in enumerate(linescsv, 0):
-    stringline = str(linescsv[num])
-    rruffid = stringline[0:7]
-    codid = stringline[8:15]
-    #print(lookforcif(codid))
-    #and lookforrruff(rruffid)
-    stringfile=str(lookforcif(codid))
+def readcsv(csvfile):
+    linescsv = [line for line in open(csvfile, "r")]
+    for num, line in enumerate(linescsv, 0):
+        stringline = str(linescsv[num])
+        rruffid = stringline[0:7]
+        codid = str(stringline[8:15])
+        print(codid)
+        #and lookforrruff(rruffid)
+        stringfile=str(lookforcif(codid))
+        return(stringfile)
 
+# _______________-------------MAIN-------------_______________
 
+print("1 - Create a single rod file")
+print("2 - Create multople rod files")
+      
+choix=input("What do you want to do ? (1/2)")
 
-    
-# Call rodbuilder to make the rod files with files we need
-rodbuilder(stringfile, "R060227.txt", "abhurite.rod", "template.rod")
+if (choix==1):
+    stringcif=input("Enter cif file name : ")
+    stringcif=(str(stringcif))
+    stringruf=input("Enter ruf file name : ")
+    stringcruf=(str(stringruf))
+    rodbuilder(stringcif, stringruf, "abhurite.rod", "template.rod")
+ 
+
+else:
+    stringcsv=input("Enter csv file name : ")
+    stringcsv=(str(stringcsv))
+    readcsv(stringcsv)
+    # Call rodbuilder to make the rod files with files we need
+    #rodbuilder("9009804.cif", "R060227.txt", "abhurite.rod", "template.rod")
+
 
