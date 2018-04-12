@@ -1,0 +1,56 @@
+raman_determination_method      experimental
+_raman_measurement_device.location 'Arizona University'
+_raman_measurement_device.company 'Thermo Scientific'
+_raman_measurement_device.model  'Nicolet Almega XR'
+_raman_measurement_device.optics_type microscope
+_raman_measurement_device.microscope_system dispersive
+_raman_measurement_device.microscope_objective_magnification 50
+_raman_measurement_device.microscope_numerical_aperture 0.5
+_raman_measurement_device.excitation_laser_type 'helium-neon'
+_raman_measurement_device.excitation_laser_wavelength 780
+_raman_measurement_device.configuration simple
+_raman_measurement_device.resolution 4
+_raman_measurement_device.power_on_sample 12
+_raman_measurement_device.direction_polarization unoriented
+_raman_measurement_device.spot_size 1
+_raman_measurement_device.diffraction_grating 400
+_raman_measurement.environment   Air
+_raman_measurement.environment_details
+;
+ The sample was measured in air.
+;
+_raman_measurement.temperature   300
+_raman_measurement.pressure      100
+_raman_measurement.background_subtraction no
+_raman_measurement.background_subtraction_details
+;
+ No background subtraction method was applied.
+;
+_raman_measurement.baseline_correction no
+_raman_measurement.baseline_correction_details
+;
+ No baseline correction method was applied.
+;
+_raman_measurement.integration_time 10
+loop_
+_raman_complementary.id
+_raman_complementary.method
+1 DRX
+loop_
+_raman_measurement_device_calibration.id
+_raman_measurement_device_calibration.standard
+1 'neon_lamp'
+
+loop_
+_rod_related_entry.id
+_rod_related_entry.code
+_rod_related_entry.database
+_rod_related_entry.uri
+_rod_related_entry.description
+1 1011291 COD http://www.crystallography.net/cod/1011291.html
+;
+XRD analysis data was done.
+;
+loop_
+_raman_spectrum.raman_shift
+_raman_spectrum.intensity
