@@ -1,4 +1,5 @@
 def rodbuilder(ciffile, ruffile, rodfile, template, codid, rruffid):
+    import os
 
     # outputfiles generated
     outputfile = open("D:/generated_rod/"+rodfile, 'w')
@@ -13,9 +14,14 @@ def rodbuilder(ciffile, ruffile, rodfile, template, codid, rruffid):
 
    
     # rod file INTRODUCTION
+    outputfile.write("data_3500000\n")
     outputfile.write("## generated rod file by the rodbuilder.py\n")
     outputfile.write("## generated from RRUFF.info files\n")
     outputfile.write("## RRUFFID _ : "+rruffid)
+    outputfile.write("\n")
+    outputfile.write("_chemical_compound_source")
+    outputfile.write("'"+rruffid)
+    outputfile.write("'")              
     outputfile.write("\n")
     
 
@@ -98,10 +104,15 @@ def rodbuilder(ciffile, ruffile, rodfile, template, codid, rruffid):
             if str(linesruf[1+num]).find("MEASURED CHEMISTRY") != -1:
                 start=2
             for i in range(start,nblinesruf-num-4):
-                linetowrite=(str(linesruf[i+num]))
-                linetowrite=linetowrite.replace("," ,"")
-                outputfile.write(linetowrite)
-
+                if (i==nblinesruf-num-5):
+                    linetowrite=(str(linesruf[i+num]))
+                    linetowrite=linetowrite.replace("," ,"")
+                    outputfile.write(linetowrite[:-1])
+                else :
+                    linetowrite=(str(linesruf[i+num]))
+                    linetowrite=linetowrite.replace("," ,"")
+                    outputfile.write(linetowrite)
+       
     outputfile.close()
     return (outputfile)
 
@@ -156,7 +167,7 @@ def readcsvforruf(csvfile):
 # _______________-------------MAIN-------------_______________
 
 print("1 - Create a single rod file")
-print("2 - Create multople rod files")
+print("2 - Create multiple rod files")
 
 choix=input("What do you want to do ? (1/2)")
 choix=int(choix)  
@@ -165,7 +176,7 @@ if (choix==1):
     stringcif=(str(stringcif))
     stringruf=input("Enter ruf file name : ")
     stringruf=(str(stringruf))
-    rodbuilder(stringcif, stringruf, "abhurite.rod", "templaterod.txt")
+    rodbuilder(stringcif, stringruf, stringruf+".rod", "templaterod.txt", stringcif, stringruf)
  
 
 else:

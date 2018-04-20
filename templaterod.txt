@@ -1,4 +1,4 @@
-raman_determination_method      experimental
+_raman_determination_method      experimental
 _raman_measurement_device.location 'Arizona University'
 _raman_measurement_device.company 'Thermo Scientific'
 _raman_measurement_device.model  'Nicolet Almega XR'
@@ -35,12 +35,11 @@ _raman_measurement.integration_time 10
 loop_
 _raman_complementary.id
 _raman_complementary.method
-1 DRX
+1 XRD
 loop_
 _raman_measurement_device_calibration.id
 _raman_measurement_device_calibration.standard
 1 'neon_lamp'
-
 loop_
 _rod_related_entry.id
 _rod_related_entry.code
@@ -51,6 +50,3 @@ _rod_related_entry.description
 ;
 XRD analysis data was done.
 ;
-loop_
-_raman_spectrum.raman_shift
-_raman_spectrum.intensity
