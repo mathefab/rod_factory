@@ -1,0 +1,113 @@
+3500160
+#1.BIBLIOGRAPHY
+# Bibliography of the main source.
+#data items are taken from the cif_core.dic
+loop_
+_publ_author_name
+''
+_publ_section_title
+;
+'SOLSA communication to ROD'
+;
+_journal_name_full''
+_journal_page_first	1
+_journal_page_last	10
+_journal_volume	12
+_journal_year	2017
+
+#2.ROD DATABASE ENTRY DETAILS
+_raman_determination_method	experimental
+
+#3. SAMPLE DETAILS
+# Specimen and mounting information.
+# Most data items are taken from the cif_core.dic.
+# Data items with the _[local] prefix are currently not in the
+# cif_core.dic, but they will be proposed to the IUCr
+_solsa_sample_id	cn-AA00-0101
+_chemical_formula_structural	'Ca H2 O2'
+_chemical_formula_sum	'Ca H2 O2'
+_chemical_name_mineral	'Portlandite'
+_chemical_compound_source	'commercial powderAlfa Aesar 95% ref A12650'
+_[local]_chemical_compound_color 	'white'
+_[local]_chemical_compound_state 	'solid'
+
+#4. COMPLEMENTARY OBSERVATION
+loop_
+_raman_complementary_id 
+_raman_complementary_method 
+	''
+
+#5. INSTRUMENT CHARACTERIZATION
+## 5.1 INSTRUMENT DETAILS
+## The following item is used to characterize the equipment used
+## to record the Raman spectrum
+_raman_measurement_device.location	'ENSICAEN'
+_raman_measurement_device.company	'Thermo'
+_raman_measurement_device.name	'DXR'
+_raman_measurement_device.optics_type	microscope
+_raman_measurement_device.microscope_system	dispersive
+_raman_measurement_device.microscope_objective_magnification	20
+_raman_measurement_device.microscope_numerical_aperture	0.000
+_raman_measurement_device.excitation_laser_type	'other'
+_raman_measurement_device.excitation_laser_wavelength 	532
+_raman_measurement_device.configuration 	simple
+_raman_measurement_device.resolution 	3
+_raman_measurement_device.power_on_sample 	2
+_raman_measurement_device.direction_polarization 	unoriented
+_raman_measurement_device.spot_size 	1.300
+_raman_measurement_device.diffraction_grating 	900
+
+## 5.2 INSTRUMENT CALIBRATION DETAILS
+
+# 6. COD DATABASE ENTRY DETAILS
+# Access to COD XRD data analysis
+loop_
+_rod_related_entry.id
+_rod_related_entry.code
+_rod_related_entry.database
+_rod_related_entry.uri
+_rod_related_entry.description
+1	1001768	COD	http://www.crystallography.net/cod/2100992.html
+;
+no XRD analysis data.
+;
+_chemical_name_systematic	'Calcium hydroxide'
+_space_group_IT_number	164
+_symmetry_cell_setting	trigonal
+_symmetry_space_group_name_Hall	'-P 3 2"'
+_symmetry_space_group_name_H-M	'P -3 m 1'
+_cell_angle_alpha	90.000
+_cell_angle_beta	90.000
+_cell_angle_gamma	120.000
+_cell_formula_units_Z	1.000
+_cell_length_a	3.589
+_cell_length_b	3.589
+_cell_length_c	4.911
+_cell_volume	54.800
+
+# 7. EXPERIMENTAL DETAILS
+_raman_measurement.environment 	Air
+_raman_measurement.environment_details 
+;
+The sample was measured in air.
+;
+_raman_measurement.temperature	300.000
+_raman_measurement.pressure	100.000
+_raman_measurement.background_subtraction	no
+_raman_measurement.background_subtraction_details
+;
+ No background subtraction method was applied.
+;
+_raman_measurement.baseline_correction	no
+_raman_measurement.baseline_correction_details
+;
+ No background subtraction method was applied.
+;
+_raman_measurement_date	2017-11-08
+_raman_measurement.integration_time	0.000
+_raman_measurement.range_min 	49.874
+_raman_measurement.range_max 	2499.991
+loop_
+_raman_spectrum.raman_shift 
+_raman_spectrum.intensity 
+#Paste your raman data here

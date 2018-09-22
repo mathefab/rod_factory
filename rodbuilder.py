@@ -14,18 +14,36 @@ def rodbuilder(ciffile, ruffile, rodfile, template, codid, rruffid):
 
    
     # rod file INTRODUCTION
+    outputfile.write("#\#CIF_2.0\n")
     outputfile.write("data_3500000\n")
     outputfile.write("## generated rod file by the rodbuilder.py\n")
     outputfile.write("## generated from RRUFF.info files\n")
     outputfile.write("## RRUFFID _ : "+rruffid)
     outputfile.write("\n")
-    outputfile.write("_chemical_compound_source")
-    outputfile.write("'"+rruffid)
-    outputfile.write("'")              
-    outputfile.write("\n")
+    # if _chemical_compound_source does not exist then we write it
+    chemical = 0
+    for num, line in enumerate(linescif, 0):
+<<<<<<< HEAD
+<<<<<<< HEAD
+            if (line.find("_chemical_compound_source")) != -1:
+=======
+            if (line.find("_chemical_compound_source ")) != -1:
+>>>>>>> b752f80bbe9ffa7ae2b87e7830515a4298e3fbe0
+=======
+            if (line.find("_chemical_compound_source ")) != -1:
+>>>>>>> b752f80bbe9ffa7ae2b87e7830515a4298e3fbe0
+                print ("_chemical_compound_source already known")
+                chemical = 1
+                break
+
+    if (chemical == 0):
+        outputfile.write("_chemical_compound_source ")
+        outputfile.write("'"+rruffid)
+        outputfile.write("'")              
+        outputfile.write("\n")
+
     
-
-
+    
     # find lines from tag "loop" to "_cod_database_code"
     
     for num, line in enumerate(linescif, 0):
@@ -41,7 +59,10 @@ def rodbuilder(ciffile, ruffile, rodfile, template, codid, rruffid):
     # copy these lines ro rodfiles
     
     for i in range(firstline,lastline):
-        outputfile.write(str(linescif[i]))
+        if linescif[i].find("_database_code_amcsd") != -1:
+            outputfile.write("#"+str(linescif[i]))
+        else:
+            outputfile.write(str(linescif[i]))
 
     
 # Here we need to set amcsd code if exist
@@ -119,9 +140,13 @@ def rodbuilder(ciffile, ruffile, rodfile, template, codid, rruffid):
 
 # END OF FONCTION rodbuilder
 
+
+
 #TODO Get the files cod.cif by walking in the cif path copy to ciffile
 #TODO Get the files (long)rruffId.txt by walking in the RRuff780 path copy to ruffile
 #TODO rename the files rruffId.txt
+
+
 
             
 def lookforcif(codid):
@@ -187,10 +212,12 @@ else:
         stringline = str(linescsv[num])
         rruffid = stringline[0:7]
         codid = str(stringline[8:15])
+        print("Seeking for COD file : ", codid, " ...")
         foundedcif = str(lookforcif(codid))
-        print(foundedcif)
+        print("Found : ",foundedcif)
+        print("looking for RRUFF file : ", rruffid, " ...")
         foundedruf = str(lookforruf(rruffid))
-        print(foundedruf)
+        print("Found : ",foundedruf)
         # Call rodbuilder to make the rod files with files we need
         rodbuilder(foundedcif, foundedruf, rruffid+".rod", "templaterod.txt", codid, rruffid)
 
